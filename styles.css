@@ -1,0 +1,13 @@
+body{
+  margin:0;background:#081019;color:white;font-family:Arial;padding:20px;text-align:center;
+}
+h1 span{color:#ffd166}
+.wrapper{max-width:500px;margin:auto}
+.step{display:none;background:#0f1720;padding:20px;border-radius:12px;margin-top:15px}
+.step.active{display:block}
+input{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #333;background:#0b0f15;color:white}
+.btn{padding:12px 18px;border-radius:8px;border:0;margin-top:10px;cursor:pointer}
+.primary{background:#ffd166;color:black;font-weight:bold}
+.back{background:#333;color:white}
+.review{background:#111;padding:15px;border-radius:10px;margin-top:10px;text-align:left}
+.site-footer{margin-top:20px;color:#888;font-size:14px}
