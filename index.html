@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gcash PesoWallet — Convert PayPal to GCash</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Gcash PesoWallet</h1>
+      <p class="tagline">Cash Convert to GCash via PayPal — ₱1 : ₱1 rate · 0.5% tax</p>
+    </header>
+
+    <section class="card">
+      <h2>Convert PayPal funds to GCash</h2>
+      <p>Convert your PayPal funds to GCash instantly. Send your payment via PayPal and receive your money in your GCash wallet immediately—fast, secure, and hassle-free.</p>
+
+      <label for="amount">Enter amount to convert (minimum ₱800)</label>
+      <div class="input-row">
+        <span class="peso">₱</span>
+        <input id="amount" type="number" inputmode="decimal" min="800" step="0.01" placeholder="800.00" />
+      </div>
+
+      <div class="calc">
+        <p>Tax (0.5%): <span id="tax">₱0.00</span></p>
+        <p>Amount you'll receive: <strong id="receive">₱0.00</strong></p>
+      </div>
+
+      <div class="actions">
+        <button id="convertBtn" class="primary">Convert Now</button>
+        <a id="payLink" class="muted" href="https://www.paypal.com/ncp/payment/RJZE2WPXDYWRJ" target="_blank" rel="noopener">Open PayPal payment page</a>
+      </div>
+
+      <p class="note">By proceeding you agree to our terms. Minimum conversion amount is ₱800. Rate: ₱1 : ₱1. Tax: 0.5% of the amount.</p>
+    </section>
+
+    <footer>
+      <small>Made for GitHub Pages — deploy to <code>gh-pages</code> branch or the repository root.</small>
+    </footer>
+
+    <!-- PayPal hosted button from user (keeps exactly as provided) -->
+    <script 
+      src="https://www.paypal.com/sdk/js?client-id=BAAam54ibAq4OLrLCVeXcq93uQZeus3YDuC6nCImhUxYwWedJ2dVKy-qlqbwGQDh_O38w8Ir1BnAVmLGSY&components=hosted-buttons&disable-funding=venmo&currency=PHP">
+    </script>
+
+    <div id="paypal-container-RJZE2WPXDYWRJ"></div>
+    <script>
+      if (window.paypal && paypal.HostedButtons) {
+        paypal.HostedButtons({
+          hostedButtonId: "RJZE2WPXDYWRJ",
+        }).render("#paypal-container-RJZE2WPXDYWRJ").catch(function(err){ console.warn(err); });
+      } else {
+        // PayPal script may load after this script; try again in a bit
+        window.addEventListener('load', function(){ 
+          if (window.paypal && paypal.HostedButtons) {
+            paypal.HostedButtons({ hostedButtonId: "RJZE2WPXDYWRJ" }).render("#paypal-container-RJZE2WPXDYWRJ");
+          }
+        });
+      }
+    </script>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
