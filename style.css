@@ -1,11 +1,11 @@
-/* Simple, clean styles for the convert page */
+/* Minimal, clean responsive styles */
 :root{
-  --bg: #f6f7fb;
-  --card: #ffffff;
-  --accent: #0764f2;
-  --muted: #666;
-  --success: #0a8a5f;
-  --maxwidth: 760px;
+  --bg:#f6f9ff;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b69ff;
+  --accent-2:#034ea2;
+  --radius:12px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
@@ -13,67 +13,102 @@
 html,body{height:100%}
 body{
   margin:0;
-  background:linear-gradient(180deg, #f6f7fb 0%, #eef2ff 100%);
-  color:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:32px;
+  background:linear-gradient(180deg,var(--bg),#eef6ff 60%);
+  color:#0f172a;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:32px 16px;
 }
 
+/* container */
 .container{
-  width:100%;
-  max-width:var(--maxwidth);
+  max-width:880px;
   margin:0 auto;
 }
 
-header{text-align:center;margin-bottom:18px}
-h1{margin:.1rem 0;font-size:1.8rem}
-.tagline{color:var(--muted);margin:0;font-size:.95rem}
+/* header */
+.site-header{display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:56px;height:56px;border-radius:10px;display:block}
+.site-header h1{margin:0;font-size:20px}
+.tag{margin:0;color:var(--muted);font-size:13px}
 
+/* card */
 .card{
   background:var(--card);
-  border-radius:12px;
+  border-radius:var(--radius);
   padding:20px;
-  box-shadow:0 6px 24px rgba(9,30,66,0.08);
+  box-shadow:0 6px 18px rgba(11,105,255,0.06);
+  margin-bottom:16px;
 }
+.card h2{margin-top:0}
+.lead{color:var(--muted);margin-bottom:18px}
 
-label{display:block;margin:10px 0 6px;font-weight:600}
-.input-row{display:flex;align-items:center;gap:8px}
-.input-row .peso{background:#f0f4ff;border-radius:6px;padding:8px 10px;border:1px solid #e6eefc}
-input[type="number"]{
-  flex:1;
+/* form */
+form{display:block}
+label{display:block;margin:10px 0 6px;font-size:14px;color:#0f172a}
+input[type="text"], input[type="tel"], input[type="number"]{
+  width:100%;
   padding:12px 14px;
-  border-radius:8px;
-  border:1px solid #e6e9ef;
-  font-size:1rem;
+  border-radius:10px;
+  border:1px solid #e6eef9;
+  background:#fbfdff;
+  font-size:15px;
   outline:none;
 }
-input[type="number"]:focus{box-shadow:0 0 0 4px rgba(7,100,242,0.08);border-color:var(--accent)}
+input:focus{box-shadow:0 0 0 4px rgba(11,105,255,0.06);border-color:var(--accent-2)}
 
-.calc{margin-top:12px;color:var(--muted)}
-.calc p{margin:6px 0}
+/* info row */
+.row.info{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font-size:14px}
 
-.actions{display:flex;align-items:center;gap:12px;margin-top:14px}
-.primary{
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:11px 16px;
-  border-radius:8px;
-  cursor:pointer;
+/* actions */
+.actions{display:flex;gap:10px;margin-top:16px;align-items:center}
+.btn{
+  padding:10px 16px;
+  border-radius:10px;
+  border:0;
   font-weight:600;
-  box-shadow:0 6px 16px rgba(7,100,242,0.18);
+  cursor:pointer;
+  font-size:15px;
 }
-.primary:active{transform:translateY(1px)}
-.muted{color:var(--accent);text-decoration:none;font-size:.95rem}
+.btn.primary{background:var(--accent);color:white}
+.btn.secondary{background:transparent;border:1px solid #dbeafe;color:var(--accent-2)}
 
-.note{margin-top:14px;color:var(--muted);font-size:.87rem}
+/* small text */
+.small{color:var(--muted);font-size:13px;margin-top:12px}
 
-footer{margin-top:12px;text-align:center;color:var(--muted)}
+/* footer */
+.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
 
-@media (max-width:520px){
-  .actions{flex-direction:column;align-items:stretch}
-  .primary{width:100%}
+/* modal */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(2,6,23,0.45);
+}
+.modal.hidden{display:none}
+.modal-content{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 8px 30px rgba(2,6,23,0.12);
+}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+
+/* responsive */
+@media (max-width:480px){
+  .row.info{
+    flex-direction:column;
+    gap:6px;
+    align-items:flex-start;
+  }
+  .actions{
+    flex-direction:column;
+  }
 }
