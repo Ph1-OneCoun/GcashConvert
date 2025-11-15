@@ -67,7 +67,7 @@ form.addEventListener('submit', (e) => {
   const amt = parseAmount();
 
   if (name.length < 3) return showError(fullnameEl, 'Please enter your full name (at least 3 characters).');
-  if (!isValidGcashNumber(gcash)) return showError(gcashEl, 'Please enter a valid GCash number. Examples: 09171234567 or +639171234567');
+  if (!isValidGcashNumber(gcash)) return showError(gcashEl, 'Please enter a valid GCash number. Examples: 09XXXXXXXXX or +639XXXXXXXXX');
   if (Number.isNaN(amt) || amt < 800 || amt > 15000) return showError(amountEl, 'Please enter an amount between ₱800 and ₱15,000.');
 
   const {fee, receive} = compute() || {};
